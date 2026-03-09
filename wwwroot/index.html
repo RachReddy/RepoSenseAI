@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RepoSense AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span class="logo-icon">&#9670;</span>
+      <span class="logo-text">RepoSense <span class="highlight">AI</span></span>
+    </div>
+    <p class="tagline">Paste a GitHub repo URL. Get instant architecture analysis powered by Groq.</p>
+  </header>
+
+  <main>
+    <section class="input-section">
+      <div class="input-row">
+        <input
+          type="text"
+          id="repoUrl"
+          placeholder="https://github.com/owner/repository"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="analyzeBtn" onclick="analyze()">Analyze</button>
+      </div>
+      <p class="input-hint">Works with any public GitHub repository.</p>
+    </section>
+
+    <section id="loadingSection" class="hidden">
+      <div class="loader-wrapper">
+        <div class="spinner"></div>
+        <p class="loader-text" id="loaderText">Fetching repo and running AI analysis<span class="dots">...</span></p>
+        <p class="loader-sub" id="loaderSub">Cloning file tree, reading key files, and sending to Groq AI.</p>
+      </div>
+    </section>
+
+    <section id="errorSection" class="hidden">
+      <div class="error-card">
+        <span class="error-icon">&#9888;</span>
+        <p id="errorMessage">Something went wrong.</p>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="hidden">
+      <div class="results-header">
+        <h2 id="repoName"></h2>
+        <a id="repoLink" href="#" target="_blank" class="repo-link">View on GitHub &#8599;</a>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card full-width">
+          <div class="card-label">Summary</div>
+          <div class="card-content" id="summary"></div>
+        </div>
+
+        <div class="card full-width">
+          <div class="card-label">Tech Stack</div>
+          <div class="card-content" id="techStack"></div>
+        </div>
+
+        <div class="card full-width">
+          <div class="card-label">Architecture</div>
+          <div class="card-content" id="architecture"></div>
+        </div>
+
+        <div class="card full-width">
+          <div class="card-label">Architecture Diagram</div>
+          <div class="mermaid" id="diagram"></div>
+        </div>
+
+        <div class="card full-width">
+          <div class="card-label">What This Repo Gets Right</div>
+          <div class="card-content" id="whatsDoneWell"></div>
+        </div>
+
+        <div class="card full-width">
+          <div class="card-label">Improvements</div>
+          <div class="card-content" id="improvements"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with ASP.NET Core &amp; Groq AI &nbsp;&middot;&nbsp; <a href="https://github.com" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@RepoSenseAI_HostAddress = http://localhost:5213
+
+GET {{RepoSenseAI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
