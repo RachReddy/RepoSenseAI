@@ -1,5 +1,7 @@
 # RepoSense AI
 
+![RepoSense AI Screenshot](screenshot.png)
+
 A web app that analyzes any public GitHub repository and returns a structured AI-powered breakdown — architecture, tech stack, strengths, improvements, and a visual diagram — in under 30 seconds.
 
 **Live demo:** https://reposenseai.onrender.com
